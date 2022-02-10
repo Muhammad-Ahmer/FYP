@@ -14,78 +14,102 @@ export default function ActivitiesScreen({ navigation }) {
     {
       id: '1',
       title: 'Walk',
+      
     },
     {
       id: '2',
       title: 'Work',
+      
     },
     {
       id: '3',
       title: 'Study',
+      
     },
     {
       id: '4',
       title: 'Sports',
+      
     },
     {
       id: '5',
       title: 'Sleep',
+      
     },
     {
       id: '6',
       title: 'Transport',
+      
     },
     {
       id: '7',
       title: 'Eat',
+      
     },
     {
       id: '8',
       title: 'Read',
+      
     },
     {
       id: '9',
       title: 'Shop',
+      
     },
     {
       id: '10',
       title: 'Entertainment',
+      
     },
     {
       id: '11',
       title: 'Housework',
+      
     },
   ];
 
   const numColumns = 4
+
   const adjustLastRow = (DATA, numColumns) => {
     const completeRows = Math.floor(DATA.length / numColumns)
     let elementInLastRow = DATA.length - (completeRows * numColumns)
-
     while (elementInLastRow !== 0 && elementInLastRow !== numColumns) {
-      DATA.push({ id: 'blank', title: 'blank' })
+      DATA.push({ id: 'blank', title: 'blank' , empty:true})
       elementInLastRow++
     }
     return DATA
   }
 
 
-  const Item = ({ title, id }) => (
+  const Item = ({ title, id,empty }) => {
 
-
-    <View style={styles.container}>
-      <View style={styles.item}>
-        <Text style={styles.title}>{id}</Text>
-        <Text style={styles.title}>{title}</Text>
+  if(empty){
+    return(
+      <View style={styles.container}>
+      <View style={styles.blank}>
+     
       </View>
-    </View>
+      </View>
+    )
+  }
+  else{
+    return(
+        <View style={styles.container}>
+        <View style={styles.item}>
+          <Text style={styles.title}>{id}</Text>
+          <Text style={styles.title}>{title}</Text>
+        </View>
+      </View>
+    )
+  }
+};
 
-  );
 
-
-  const renderItem = ({ item }) => (
-    <Item title={item.title} id={item.id} />
-  );
+  const renderItem = ({ item }) => {
+      return(
+        <Item title={item.title} id={item.id} empty={item.empty}/>
+      )
+    };
 
   return (
     // <SafeAreaView >
@@ -124,5 +148,5 @@ const styles = StyleSheet.create({
     fontSize: 10,
 
   },
-  blank: { backgroundColor: '#545465' }
+  blank: { backgroundColor: 'transparent' }
 });

@@ -1,5 +1,5 @@
 import React, { Component, useContext } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,StyleSheet } from 'react-native';
 import { TitleContext } from '../lib/contexts';
 export default function EditScreen({ navigation }) {
     const titleContext = useContext(TitleContext)
@@ -11,8 +11,24 @@ export default function EditScreen({ navigation }) {
     }, [navigation]);
     return (
         <View>
-            <Text>This is Edit Screen</Text>
+            <Text style={styles.title}>Nothing tracked for selected period</Text>
+            <Text style={styles.line}>Change period or touch + to create new activity</Text>
         </View>
     )
 }
 
+const styles = StyleSheet.create({
+    title: {
+     
+      fontSize: 20,
+      textAlign:'center',
+      paddingTop:15,
+     
+    },
+    line: {
+    
+        fontSize: 15,
+        textAlign:'center',
+        paddingTop:2,
+      },
+  });

@@ -1,5 +1,5 @@
 import React, { Component, useContext } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text ,StyleSheet} from 'react-native';
 import { TitleContext } from '../lib/contexts';
 export default function GoalsScreen({ navigation }) {
     const titleContext = useContext(TitleContext)
@@ -11,7 +11,24 @@ export default function GoalsScreen({ navigation }) {
     }, [navigation]);
     return (
         <View>
-            <Text>this is Goals screen</Text>
+            <Text style={styles.title}>No goals</Text>
+            <Text style={styles.line}>Click + to add new goals</Text>
         </View>
     )
 }  
+
+const styles = StyleSheet.create({
+    title: {
+     
+      fontSize: 20,
+      textAlign:'center',
+      paddingTop:15,
+     
+    },
+    line: {
+    
+        fontSize: 15,
+        textAlign:'center',
+        paddingTop:2,
+      },
+  });

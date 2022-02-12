@@ -119,16 +119,13 @@ export default function ActivitiesScreen({ navigation }) {
         <Item title={item.title}  icon={item.icon} color={item.color} empty={item.empty}/>
       )
     };
-
   return (
-    // <SafeAreaView >
     <FlatList
       data={adjustLastRow(DATA, numColumns)}
       renderItem={renderItem}
       numColumns={numColumns}
       keyExtractor={item => item.id}
     />
-    // </SafeAreaView>
   );
 }
 

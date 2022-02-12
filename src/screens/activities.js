@@ -1,4 +1,5 @@
 import React, { Component, useContext } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { View, Text, SafeAreaView, FlatList, StyleSheet, StatusBar } from 'react-native';
 import { TitleContext } from '../lib/contexts';
 export default function ActivitiesScreen({ navigation }) {
@@ -13,58 +14,72 @@ export default function ActivitiesScreen({ navigation }) {
   const DATA = [
     {
       id: '1',
+      icon:'walking',
       title: 'Walk',
+      color:'#4db8db'
       
     },
     {
       id: '2',
+      icon:'briefcase',
       title: 'Work',
+      color:'#e38017'
       
     },
     {
       id: '3',
+      icon:'pencil-alt',
       title: 'Study',
+      color:'#968c59'
       
     },
     {
       id: '4',
+      icon:'volleyball-ball',
       title: 'Sports',
-      
+      color:'#f59a2c'
     },
     {
       id: '5',
+      icon:'theater-masks',
       title: 'Sleep',
-      
+      color:'#a83503'
     },
     {
       id: '6',
+      icon:'truck-moving',
       title: 'Transport',
-      
+      color:'#ed287e'
     },
     {
       id: '7',
+      icon:'utensils',
       title: 'Eat',
-      
+      color:'#5b8703'
     },
     {
       id: '8',
+      icon:'book',
       title: 'Read',
-      
+      color:'#6b6e3f'
     },
     {
       id: '9',
+      icon:'shopping-cart',
       title: 'Shop',
-      
+      color:'#7c9985'
     },
     {
       id: '10',
+      icon:'dice',
       title: 'Entertainment',
-      
+      color:'#12c6c9'
     },
     {
       id: '11',
+      icon:'home',
       title: 'Housework',
-      
+      color:'#034a19'
     },
   ];
 
@@ -79,15 +94,11 @@ export default function ActivitiesScreen({ navigation }) {
     }
     return DATA
   }
-
-
-  const Item = ({ title, id,empty }) => {
-
+  const Item = ({ title, color,icon,empty }) => {
   if(empty){
     return(
       <View style={styles.container}>
       <View style={styles.blank}>
-     
       </View>
       </View>
     )
@@ -96,18 +107,16 @@ export default function ActivitiesScreen({ navigation }) {
     return(
         <View style={styles.container}>
         <View style={styles.item}>
-          <Text style={styles.title}>{id}</Text>
+        <Icon style={styles.icon} name={icon} size={16}  color={color} />
           <Text style={styles.title}>{title}</Text>
         </View>
       </View>
     )
   }
 };
-
-
   const renderItem = ({ item }) => {
       return(
-        <Item title={item.title} id={item.id} empty={item.empty}/>
+        <Item title={item.title}  icon={item.icon} color={item.color} empty={item.empty}/>
       )
     };
 
@@ -135,17 +144,16 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#0096ed',
     padding: 0,
-    marginVertical: 8,
     marginHorizontal: 12,
-
-
+  },
+  icon:{ paddingTop:25 ,
+  fontSize:22,
   },
   title: {
-    paddingBottom: 12,
-    paddingTop: 12,
+    paddingBottom: 10,
     fontSize: 10,
+    textAlign:'center',
 
   },
   blank: { backgroundColor: 'transparent' }

@@ -5,7 +5,7 @@ export default function GoalsScreen({ navigation }) {
     const titleContext = useContext(TitleContext)
     React.useEffect(() => {
         const unsubscribe = navigation.addListener('focus', e => {
-            titleContext.updateTitle('goals')
+            titleContext.updateTitle('Goals')
         });
         return unsubscribe;
     }, [navigation]);

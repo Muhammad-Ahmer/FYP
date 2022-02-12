@@ -30,7 +30,7 @@ export default function AppContainer() {
                 iconName = 'list-ul'
               }
               else if (route.name === 'More') {
-                iconName = 'cog'
+                iconName = 'arrow-circle-right'
               }
               return <Icon name={iconName} size={16} color='white' />;
             },

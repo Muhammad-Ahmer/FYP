@@ -1,6 +1,6 @@
 import React, { Component, useContext } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {  View, Text, SafeAreaView, FlatList, StyleSheet, StatusBar} from 'react-native';
+import {  View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import { TitleContext } from '../lib/contexts';
 export default function TypesScreen({ navigation }) {
     const titleContext = useContext(TitleContext)
@@ -11,6 +11,11 @@ export default function TypesScreen({ navigation }) {
         return unsubscribe;
     }, [navigation]);
 
+
+    const buttonClickedHandler = () => {
+      console.log('You have been clicked a button!');
+      // do something
+    }; 
     const DATA = [
         {
           id: '1',
@@ -84,9 +89,10 @@ export default function TypesScreen({ navigation }) {
       ];
 
 
+
   const Item = ({ title, color,icon}) => {
     return(
-        <View style={styles.container}>
+        <View style={styles.line}>
         <View style={styles.iconbox}>
         <Icon style={styles.icon} name={icon}  color={color} />
         </View>
@@ -104,19 +110,32 @@ export default function TypesScreen({ navigation }) {
 
   return (
     // <SafeAreaView >
+    <View style={styles.container}>
+      <View >
     <FlatList
       data={DATA}
       renderItem={renderItem}
       keyExtractor={item => item.id}
-    />
+    />  
+    </View>
+    
+    <View style={styles.btn} >
+    <TouchableOpacity
+      onPress={buttonClickedHandler}
+      style={styles.roundButton1}>
+      <Icon style={styles.iconBtn} name='plus' color='white' />
+    </TouchableOpacity></View>
+    </View>
     // </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    //  backgroundColor:'blue',
+container:{flex: 1,
+  backgroundColor:'white'},
+
+  line: {
+
      flexDirection: 'row',
      borderBottomColor:'gray',
      borderBottomWidth:0.3,
@@ -128,7 +147,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
      marginLeft: 0,
-    // backgroundColor:'pink'
   },
   titlebox: {
     width: 370,
@@ -137,7 +155,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
      
-    // backgroundColor:'red',
+ 
     
   },
   icon:{ 
@@ -150,5 +168,27 @@ alignContent:'center',
     fontSize: 17,
    
   },
+
+  btn: { 
+    padding:20,
+    position: 'absolute', 
+    top: 635, 
+    left: 325, 
+    right: 0, 
+    bottom: 0,
+     justifyContent: 'center',
+     alignItems: 'center',
+ },
+ roundButton1: {
+  width: 50,
+  height: 50,
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: 2,
+  borderRadius: 100,
+  backgroundColor: '#0096ed',
+},
+iconBtn:{fontSize:15,
+},
 });
 

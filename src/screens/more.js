@@ -63,7 +63,7 @@ export default function MoreScreen({ navigation ,route}) {
 
   const Item = ({ title, color,icon}) => {
     return(
-        <View style={styles.container}>
+        <View style={styles.line}>
         <View style={styles.iconbox}>
         <Icon style={styles.icon} name={icon}  color={color} />
         </View>
@@ -80,21 +80,24 @@ export default function MoreScreen({ navigation ,route}) {
     };
 
   return (
-    // <SafeAreaView >
+     <View style={styles.container}>
     <FlatList
       data={DATA}
       renderItem={renderItem}
       keyExtractor={item => item.id}
     />
-    // </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    //  backgroundColor:'blue',
-     flexDirection: 'row',
+  container:{ 
+     flex: 1,
+     backgroundColor:'white',
+  },
+
+  line: {
+    flexDirection: 'row',
   },
   iconbox: {
       

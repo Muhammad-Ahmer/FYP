@@ -9,11 +9,7 @@ const AppIndex = AppContainer
 
 export default function app() {
 
-    const [name, setName]= useState();
 
-    const updateName = (nameprop)=> {
-        setName(nameprop);
-    }
     ///////////////////////////////////////////
     const [title, setTitle] = useState();
 
@@ -21,7 +17,7 @@ export default function app() {
         setTitle(title);
         // test
     }
-    const obj = { updateTitle:updateTitle, updateName};
+    const obj = { updateTitle:updateTitle};
     ///////////////////////////////////////////
 
     return (
@@ -31,10 +27,9 @@ export default function app() {
                     backgroundColor='#084b9e'
                 />
                 <View style={styles.header}>
-                    <Icon name='align-justify' size={16} color='white' />
+                    <Icon name='align-justify'  color='white' />
                     <Text>{title}</Text>
-                    <Text>{name}</Text>
-                    <Icon name='search' size={16} color='white' />
+                    <Icon name='search'  color='white' />
                 </View>
                 <AppIndex/>
             </View>

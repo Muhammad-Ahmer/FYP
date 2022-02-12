@@ -1,7 +1,10 @@
 import React, { Component, useContext } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { View, Text, SafeAreaView, FlatList, StyleSheet, StatusBar } from 'react-native';
+import { View, Text,FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import { TitleContext } from '../lib/contexts';
+
+
+
 export default function ActivitiesScreen({ navigation }) {
   const titleContext = useContext(TitleContext)
   React.useEffect(() => {
@@ -81,6 +84,7 @@ export default function ActivitiesScreen({ navigation }) {
       title: 'Housework',
       color:'#034a19'
     },
+    
   ];
 
   const numColumns = 4
@@ -107,7 +111,7 @@ export default function ActivitiesScreen({ navigation }) {
     return(
         <View style={styles.container}>
         <View style={styles.item}>
-        <Icon style={styles.icon} name={icon} size={16}  color={color} />
+        <Icon style={styles.icon} name={icon}  color={color} />
           <Text style={styles.title}>{title}</Text>
         </View>
       </View>
@@ -119,20 +123,35 @@ export default function ActivitiesScreen({ navigation }) {
         <Item title={item.title}  icon={item.icon} color={item.color} empty={item.empty}/>
       )
     };
+    const buttonClickedHandler = () => {
+      console.log('You have been clicked a button!');
+      // do something
+    };
   return (
+    <View style={styles.container}>
+      <View >
     <FlatList
       data={adjustLastRow(DATA, numColumns)}
       renderItem={renderItem}
       numColumns={numColumns}
       keyExtractor={item => item.id}
     />
+    </View>
+    <View style={styles.btn} >
+      <TouchableOpacity
+        onPress={buttonClickedHandler}
+        style={styles.roundButton1}>
+        <Icon style={styles.iconBtn} name='plus' color='white' />
+      </TouchableOpacity></View>
+    </View>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
+    backgroundColor:'white',
   },
 
   item: {
@@ -141,7 +160,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 0,
     marginHorizontal: 12,
   },
   icon:{ paddingTop:25 ,
@@ -151,7 +169,27 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     fontSize: 10,
     textAlign:'center',
-
   },
+  btn: { 
+    padding:20,
+    position: 'absolute', 
+    top: 635, 
+    left: 325, 
+    right: 0, 
+    bottom: 0,
+     justifyContent: 'center',
+     alignItems: 'center',
+ },
+ roundButton1: {
+  width: 50,
+  height: 50,
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: 2,
+  borderRadius: 100,
+  backgroundColor: '#0096ed',
+},
+iconBtn:{fontSize:15,
+},
   blank: { backgroundColor: 'transparent' }
 });

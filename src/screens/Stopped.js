@@ -26,7 +26,6 @@ export default function Stopped({ navigation }) {
                 style={styles.input}
                 placeholder="Select Type"
                 value='Select Type'
-
             />
             <Text style={styles.Text}>Comment</Text>
             <TextInput

@@ -18,7 +18,6 @@ export default function Stopped({ navigation }) {
     };
 
 
-
     return (
         <View style={styles.container}>
             <Text style={styles.Text}>Type</Text>

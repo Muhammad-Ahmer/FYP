@@ -41,7 +41,7 @@ export default function app() {
         }
 
 
-        else if (titl == 'NewGoals' || titl == 'NewTypes') {
+        else if (titl == 'NewGoals' || titl == 'NewTypes' || titl == 'AddNewType') {
             return (<View style={styles.NewHeader}>
                 <Icon style={styles.cross} name='times' color='white' />
                 <Icon style={styles.content} name='check' color='white' />

@@ -1,6 +1,7 @@
 
-import React, { Component, useContext } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { Component, useContext, useState } from 'react';
+import { View, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { TitleContext } from '../lib/contexts';
 export default function NewEdits({ navigation }) {
@@ -12,70 +13,62 @@ export default function NewEdits({ navigation }) {
         return unsubscribe;
     }, [navigation]);
 
+    const [date, setDate] = useState(new Date());
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
 
-    const buttonClickedHandler = () => {
-        console.log('You have been clicked a button!');
-        // do something
-    };
+    return <View><Text >Edit Screen</Text></View>
 
 
 
-    return (
-        <View style={styles.container}>
-            <View >
-                <Text style={styles.title}>Edit kar yar</Text>
-                <Text style={styles.line}>Change period or touch + to create new activity</Text>
-            </View>
-            <View style={styles.btn} >
-                <TouchableOpacity
-                    onPress={buttonClickedHandler}
-                    style={styles.roundButton1}>
-                    <Icon style={styles.iconBtn} name='plus' color='white' />
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
 }
+{/* 
+//         <DateTimePicker mode="time" /></View> */}
 
-const styles = StyleSheet.create({
+{/* //     // <DatePicker date={date} onDateChange={setDate} />
+// }
+// //     const [date, setDate] = useState(new Date())
+// //     const [open, setOpen] = useState(false)
 
-    container: {
-        flex: 1,
-        backgroundColor: 'white',
-    },
-    title: {
 
-        fontSize: 20,
-        textAlign: 'center',
-        paddingTop: 15,
 
-    },
-    line: {
+// //     const buttonClickedHandler = () => { */}
+//         console.log('You have been clicked a button!');
+//         // do something
+//     };
 
-        fontSize: 15,
-        textAlign: 'center',
-        paddingTop: 2,
-    },
-    btn: {
-        padding: 20,
-        position: 'absolute',
-        top: 635,
-        left: 325,
-        right: 0,
-        bottom: 0,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    roundButton1: {
-        width: 50,
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 2,
-        borderRadius: 100,
-        backgroundColor: '#0096ed',
-    },
-    iconBtn: {
-        fontSize: 15,
-    },
-});
+
+
+//     return (
+//         // <View style={styles.container}>
+//         //     <View >
+//         //         <Text style={styles.title}>Edit kar yar</Text>
+//         //         <Text style={styles.line}>Change period or touch + to create new activity</Text>
+//         //     </View>
+//         //     <View style={styles.btn} >
+//         //         <TouchableOpacity
+                    //  onPress={buttonClickedHandler}
+                    // style={styles.roundButton1}>
+        //             <Icon style={styles.iconBtn} name='plus' color='white' />
+        //         </TouchableOpacity>
+        //     </View>
+        // </View>
+//         <>
+
+//             <Button title="Open" onPress={() => setOpen(true)} />
+//             <DatePicker
+//                 modal
+//                 open={open}
+//                 date={date}
+//                 onConfirm={(date) => {
+//                     setOpen(false)
+//                     setDate(date)
+//                 }}
+//                 onCancel={() => {
+//                     setOpen(false)
+//                 }}
+//             />
+//         </>
+
+//     )
+// 

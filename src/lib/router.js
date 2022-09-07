@@ -21,7 +21,7 @@ import Rate from "../screens/Rate";
 import Running from "../screens/Running";
 import Paused from "../screens/Paused";
 import Stopped from "../screens/Stopped";
-
+import AddNewType from "../screens/AddNewType"
 
 
 
@@ -69,7 +69,6 @@ function Home() {
 
   );
 }
-
 const Tab2 = createMaterialTopTabNavigator()
 function Home2() {
   return (
@@ -98,6 +97,36 @@ function Home2() {
     </Tab2.Navigator>
   );
 }
+const Tab3 = createMaterialTopTabNavigator()
+function Home3() {
+  return (
+    <Tab3.Navigator
+
+      screenOptions={({ route }) => {
+        return {
+          tabBarShowLabel: true,
+          tabBarItemStyle: {
+            paddingBottom: 20,
+            margin: 5,
+          },
+          tabBarStyle: {
+            backgroundColor: '#ffffff',
+            height: 52,
+            borderBottomColor: '#0096ed',
+            borderBottomWidth: 0.5,
+          }
+        }
+      }}
+    >
+      <Tab3.Screen name="Running" component={Running} />
+      <Tab3.Screen name="Paused" component={Paused} />
+      <Tab3.Screen name="Stopped" component={Stopped} />
+
+    </Tab3.Navigator>
+  );
+}
+
+
 const Stack = createNativeStackNavigator();
 export default function AppContainer() {
   return (
@@ -106,8 +135,10 @@ export default function AppContainer() {
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
 
         <Stack.Screen name="Home2" component={Home2} options={{ headerShown: false }} />
-        {/* <Stack.Screen name="NewActivities" component={NewActivities} options={{ headerShown: false }} /> */}
 
+        <Stack.Screen name="Home3" component={Home3} options={{ headerShown: false }} />
+        {/* <Stack.Screen name="NewActivities" component={NewActivities} options={{ headerShown: false }} /> */}
+        <Stack.Screen name="AddNewType" component={AddNewType} options={{ headerShown: false }} />
         <Stack.Screen name="NewGoals" component={NewGoals} options={{ headerShown: false }} />
         <Stack.Screen name="NewTypes" component={NewTypes} options={{ headerShown: false }} />
         <Stack.Screen name="NewEdit" component={NewEdit} options={{ headerShown: false }} />

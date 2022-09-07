@@ -10,14 +10,10 @@ export default function EditScreen({ navigation }) {
     });
     return unsubscribe;
   }, [navigation]);
-
-
   const buttonClickedHandler = () => {
     console.log('You have been clicked a button!');
     // do something
   };
-
-
 
   return (
     <View style={styles.container}>

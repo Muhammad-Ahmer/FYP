@@ -22,7 +22,7 @@ export default function Contribute({ navigation }) {
     return (
         <View style={styles.container}>
             <View >
-                <Text style={styles.title}>contribute</Text>
+                <Text style={styles.title}>contribute Screen</Text>
                 <Text style={styles.line}>Change period or touch + to create new activity</Text>
             </View>
             <View style={styles.btn} >

@@ -17,12 +17,10 @@ export default function NewGoals({ navigation }) {
         // do something
     };
 
-
-
     return (
         <View style={styles.container}>
             <View >
-                <Text style={styles.title}>ye goalss hean aur ye mean hoon</Text>
+                <Text style={styles.title}>Add new Goals</Text>
                 <Text style={styles.line}>Change period or touch + to create new activity</Text>
             </View>
             <View style={styles.btn} >

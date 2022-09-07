@@ -22,7 +22,7 @@ export default function Rate({ navigation }) {
     return (
         <View style={styles.container}>
             <View >
-                <Text style={styles.title}>ye mean hoon aur ye meri activity hai</Text>
+                <Text style={styles.title}>Rate</Text>
                 <Text style={styles.line}>Change period or touch + to create new activity</Text>
             </View>
             <View style={styles.btn} >

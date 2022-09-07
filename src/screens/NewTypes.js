@@ -23,7 +23,8 @@ export default function NewTypes({ navigation }) {
     return (
         <View style={styles.container}>
             <View >
-                <Text style={styles.title}>type kar</Text>
+                <Text style={styles.title}>type screen
+                </Text>
                 <Text style={styles.line}>Change period or touch + to create new activity</Text>
             </View>
             <View style={styles.btn} >
